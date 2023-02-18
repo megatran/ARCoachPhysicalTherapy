@@ -8,19 +8,26 @@ The app's main view controller.
 import UIKit
 import Vision
 
+let acronym = [
+    ("Danger", "Ensure the area is safe"),
+    ("Response", "Check for response"),
+    ("Send", "Send for help"),
+    ("Airway", "Open mouth"),
+    ("Breathing", "Check for breathing"),
+    ("CPR", "Start CPR"),
+    ("Defibrillation", "Apply defibrillator")
+]
+
 @available(iOS 14.0, *)
-class MainViewController: UIViewController {
+class VideoViewController: UIViewController {
     /// The full-screen view that presents the pose on top of the video frames.
     @IBOutlet var imageView: UIImageView!
 
     /// The stack that contains the labels at the middle of the leading edge.
     @IBOutlet weak var labelStack: UIStackView!
 
-    /// The label that displays the model's exercise action prediction.
-    @IBOutlet weak var actionLabel: UILabel!
-
     /// The label that displays the model's confidence in its prediction.
-    @IBOutlet weak var confidenceLabel: UILabel!
+    @IBOutlet weak var stageLbl: UILabel!
 
     /// The stack that contains the buttons at the bottom of the leading edge.
     @IBOutlet weak var buttonStack: UIStackView!
@@ -46,10 +53,30 @@ class MainViewController: UIViewController {
     /// Maintains the aggregate time for each action the model predicts.
     /// - Tag: actionFrameCounts
     var actionFrameCounts = [String: Int]()
+    
+    @IBAction func next(_ sender: UIButton) {
+        displayStep(i)
+        i += 1
+        if step >= acronym.count {
+            sender.isHidden = true
+        }
+    }
+    
+    func displayStep(_ step: Int) {
+        if step < acronym.count {
+            let (name, description) = acronym[step]
+            stageLbl.text = "\(name)\n\(description)"
+        }
+    }
+    
+
+    @IBOutlet weak var avgRateLbl: UILabel!
+    @IBOutlet weak var timeBtwLbl: UILabel!
+    var i = 0
 }
 
 // MARK: - View Controller Events
-extension MainViewController {
+extension VideoViewController {
     /// Configures the main view after it loads.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +98,10 @@ extension MainViewController {
         // Begin receiving frames from the video capture.
         videoCapture = VideoCapture()
         videoCapture.delegate = self
+        
+        displayStep(0)
+        i += 1
 
-        updateUILabelsWithPrediction(.startingPrediction)
     }
 
     /// Configures the video captures session with the device's orientation.
@@ -95,7 +124,7 @@ extension MainViewController {
 }
 
 // MARK: - Button Events
-extension MainViewController {
+extension VideoViewController {
     /// Toggles the video capture between the front- and back-facing cameras.
     @IBAction func onCameraButtonTapped(_: Any) {
         videoCapture.toggleCameraSelection()
@@ -139,14 +168,13 @@ extension MainViewController {
 }
 
 // MARK: - Video Capture Delegate
-extension MainViewController: VideoCaptureDelegate {
+extension VideoViewController: VideoCaptureDelegate {
     /// Receives a video frame publisher from a video capture.
     /// - Parameters:
     ///   - videoCapture: A `VideoCapture` instance.
     ///   - framePublisher: A new frame publisher from the video capture.
     func videoCapture(_ videoCapture: VideoCapture,
                       didCreate framePublisher: FramePublisher) {
-        updateUILabelsWithPrediction(.startingPrediction)
         
         // Build a new video-processing chain by assigning the new frame publisher.
         videoProcessingChain.upstreamFramePublisher = framePublisher
@@ -154,7 +182,7 @@ extension MainViewController: VideoCaptureDelegate {
 }
 
 // MARK: - video-processing chain Delegate
-extension MainViewController: VideoProcessingChainDelegate {
+extension VideoViewController: VideoProcessingChainDelegate {
     /// Receives an action prediction from a video-processing chain.
     /// - Parameters:
     ///   - chain: A video-processing chain.
@@ -171,7 +199,6 @@ extension MainViewController: VideoProcessingChainDelegate {
         }
 
         // Present the prediction in the UI.
-        updateUILabelsWithPrediction(actionPrediction)
     }
 
     /// Receives a frame and any poses in that frame.
@@ -191,7 +218,7 @@ extension MainViewController: VideoProcessingChainDelegate {
 }
 
 // MARK: - Helper methods
-extension MainViewController {
+extension VideoViewController {
     /// Add the incremental duration to an action's total time.
     /// - Parameters:
     ///   - actionLabel: The name of the action.
@@ -202,20 +229,6 @@ extension MainViewController {
 
         // Assign the new total frame count for this action.
         actionFrameCounts[actionLabel] = totalFrames
-    }
-
-    /// Updates the user interface's labels with the prediction and its
-    /// confidence.
-    /// - Parameters:
-    ///   - label: The prediction label.
-    ///   - confidence: The prediction's confidence value.
-    private func updateUILabelsWithPrediction(_ prediction: ActionPrediction) {
-        // Update the UI's prediction label on the main thread.
-        DispatchQueue.main.async { self.actionLabel.text = prediction.label }
-
-        // Update the UI's confidence label on the main thread.
-        let confidenceString = prediction.confidenceString ?? "Observing..."
-        DispatchQueue.main.async { self.confidenceLabel.text = confidenceString }
     }
 
     /// Draws poses as wireframes on top of a frame, and updates the user

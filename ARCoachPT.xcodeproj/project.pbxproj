@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A2D23B222BB70E400494C55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D23B122BB70E400494C55 /* AppDelegate.swift */; };
-		4A2D23B622BB70E400494C55 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D23B522BB70E400494C55 /* MainViewController.swift */; };
+		4A2D23B622BB70E400494C55 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D23B522BB70E400494C55 /* VideoViewController.swift */; };
 		4A2D23B922BB70E400494C55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A2D23B722BB70E400494C55 /* Main.storyboard */; };
 		4A2D23BB22BB70E500494C55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2D23BA22BB70E500494C55 /* Assets.xcassets */; };
 		4A2D23BE22BB70E500494C55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A2D23BC22BB70E500494C55 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 		12E34EC925104636003C138C /* GuessMyExercise.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GuessMyExercise.entitlements; sourceTree = "<group>"; };
 		4A2D23AE22BB70E400494C55 /* ARCoachPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARCoachPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A2D23B122BB70E400494C55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4A2D23B522BB70E400494C55 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4A2D23B522BB70E400494C55 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		4A2D23B822BB70E400494C55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A2D23BA22BB70E500494C55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A2D23BD22BB70E500494C55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		6594E51A23454A2300D3C44D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4A2D23B522BB70E400494C55 /* MainViewController.swift */,
+				4A2D23B522BB70E400494C55 /* VideoViewController.swift */,
 				50E5D800247B932E00A25665 /* SummaryViewController.swift */,
 				4A2D23B722BB70E400494C55 /* Main.storyboard */,
 			);
@@ -288,7 +288,7 @@
 				DF20C7392578047E00C9DB98 /* Pose+Connection.swift in Sources */,
 				FADD45BD24D55CE200955140 /* AVCaptureDevice+FrameRate.swift in Sources */,
 				50E5D801247B932E00A25665 /* SummaryViewController.swift in Sources */,
-				4A2D23B622BB70E400494C55 /* MainViewController.swift in Sources */,
+				4A2D23B622BB70E400494C55 /* VideoViewController.swift in Sources */,
 				DFF8422E25CC7E9000DC36E5 /* ExerciseClassifier+Singleton.swift in Sources */,
 				DFE2078525AFECC800FB76EF /* AVCaptureVideoDataOutput+PixelFormat.swift in Sources */,
 				DFCEDF9F25CDF50100E9CBDE /* ExerciseClassifier.mlmodel in Sources */,
