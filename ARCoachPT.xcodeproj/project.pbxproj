@@ -25,10 +25,10 @@
 		DF96FB1F256864520086C3AB /* PerformanceReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96FB1E256864520086C3AB /* PerformanceReporter.swift */; };
 		DFA5AF012564A6CC00B6E0FC /* ExerciseClassifier+FrameRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5AF002564A6CC00B6E0FC /* ExerciseClassifier+FrameRate.swift */; };
 		DFA9EECB2571951800849AFB /* Pose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA9EECA2571951800849AFB /* Pose.swift */; };
-		DFCEDF9F25CDF50100E9CBDE /* ExerciseClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = DFCEDF9E25CDF50100E9CBDE /* ExerciseClassifier.mlmodel */; };
 		DFD1ED022564427700466FDA /* VideoProcessingChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1ED012564427700466FDA /* VideoProcessingChain.swift */; };
 		DFE2078525AFECC800FB76EF /* AVCaptureVideoDataOutput+PixelFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE2078425AFECC800FB76EF /* AVCaptureVideoDataOutput+PixelFormat.swift */; };
 		DFF8422E25CC7E9000DC36E5 /* ExerciseClassifier+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF49B65225CB5E27008A61F3 /* ExerciseClassifier+Singleton.swift */; };
+		EF36AC8629A22BA400D92F36 /* ExerciseClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = EF36AC8529A22BA400D92F36 /* ExerciseClassifier.mlmodel */; };
 		FADD45BD24D55CE200955140 /* AVCaptureDevice+FrameRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD45BC24D55CE200955140 /* AVCaptureDevice+FrameRate.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,9 +58,9 @@
 		DF96FB1E256864520086C3AB /* PerformanceReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceReporter.swift; sourceTree = "<group>"; };
 		DFA5AF002564A6CC00B6E0FC /* ExerciseClassifier+FrameRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseClassifier+FrameRate.swift"; sourceTree = "<group>"; };
 		DFA9EECA2571951800849AFB /* Pose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pose.swift; sourceTree = "<group>"; };
-		DFCEDF9E25CDF50100E9CBDE /* ExerciseClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ExerciseClassifier.mlmodel; sourceTree = "<group>"; };
 		DFD1ED012564427700466FDA /* VideoProcessingChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProcessingChain.swift; sourceTree = "<group>"; };
 		DFE2078425AFECC800FB76EF /* AVCaptureVideoDataOutput+PixelFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoDataOutput+PixelFormat.swift"; sourceTree = "<group>"; };
+		EF36AC8529A22BA400D92F36 /* ExerciseClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = ExerciseClassifier.mlmodel; path = "../../../../Downloads/cpr_training/good model/ExerciseClassifier.mlmodel"; sourceTree = "<group>"; };
 		FADD45BC24D55CE200955140 /* AVCaptureDevice+FrameRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+FrameRate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,8 +122,8 @@
 		50C8DA9323D13B6300734053 /* Action Classifier */ = {
 			isa = PBXGroup;
 			children = (
+				EF36AC8529A22BA400D92F36 /* ExerciseClassifier.mlmodel */,
 				DF49B64725CB563E008A61F3 /* ActionPrediction.swift */,
-				DFCEDF9E25CDF50100E9CBDE /* ExerciseClassifier.mlmodel */,
 				DF49B65225CB5E27008A61F3 /* ExerciseClassifier+Singleton.swift */,
 				DF49B64C25CB5D40008A61F3 /* ExerciseClassifier+Label.swift */,
 				DF49B64F25CB5D97008A61F3 /* ExerciseClassifier+LabelCheck.swift */,
@@ -291,7 +291,6 @@
 				4A2D23B622BB70E400494C55 /* VideoViewController.swift in Sources */,
 				DFF8422E25CC7E9000DC36E5 /* ExerciseClassifier+Singleton.swift in Sources */,
 				DFE2078525AFECC800FB76EF /* AVCaptureVideoDataOutput+PixelFormat.swift in Sources */,
-				DFCEDF9F25CDF50100E9CBDE /* ExerciseClassifier.mlmodel in Sources */,
 				DFA9EECB2571951800849AFB /* Pose.swift in Sources */,
 				DF20C73C257805AE00C9DB98 /* Pose+Empty.swift in Sources */,
 				DF20C7362578044800C9DB98 /* Pose+Landmark.swift in Sources */,
@@ -301,6 +300,7 @@
 				4A2D23B222BB70E400494C55 /* AppDelegate.swift in Sources */,
 				DF49B64825CB5649008A61F3 /* ActionPrediction.swift in Sources */,
 				DF49B64D25CB5D40008A61F3 /* ExerciseClassifier+Label.swift in Sources */,
+				EF36AC8629A22BA400D92F36 /* ExerciseClassifier.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +462,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.GuessMyExercise${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.trannhan.com.cpranywhere${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -489,7 +489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.GuessMyExercise${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.trannhan.com.cpranywhere${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;

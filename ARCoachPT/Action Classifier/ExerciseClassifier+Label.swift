@@ -11,7 +11,9 @@ extension ExerciseClassifier {
         case lunges = "Lunges"
         case burpees = "Burpees"
         case jumpingJacks = "Jumping Jacks"
-
+        case cpr = "cpr"
+        case other = "other"
+        case other_ = "other_"
         /// A negative class that represents irrelevant actions.
         case otherAction = "Other Action"
 
