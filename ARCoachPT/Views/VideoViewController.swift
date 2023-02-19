@@ -57,7 +57,7 @@ class VideoViewController: UIViewController {
     @IBAction func next(_ sender: UIButton) {
         displayStep(i)
         i += 1
-        if step >= acronym.count {
+        if i >= acronym.count {
             sender.isHidden = true
         }
     }
@@ -124,48 +124,6 @@ extension VideoViewController {
 }
 
 // MARK: - Button Events
-extension VideoViewController {
-    /// Toggles the video capture between the front- and back-facing cameras.
-    @IBAction func onCameraButtonTapped(_: Any) {
-        videoCapture.toggleCameraSelection()
-    }
-
-    /// Presents a summary view of the user's actions and their total times.
-    @IBAction func onSummaryButtonTapped() {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-
-        // Get the view controller based on its name.
-        let vcName = "SummaryViewController"
-        let viewController = main.instantiateViewController(identifier: vcName)
-
-        // Cast it as a `SummaryViewController`.
-        guard let summaryVC = viewController as? SummaryViewController else {
-            fatalError("Couldn't cast the Summary View Controller.")
-        }
-
-        // Copy the current actions times to the summary view.
-        summaryVC.actionFrameCounts = actionFrameCounts
-
-        // Define the presentation style for the summary view.
-        modalPresentationStyle = .popover
-        modalTransitionStyle = .coverVertical
-
-        // Reestablish the video-processing chain when the user dismisses the
-        // summary view.
-        summaryVC.dismissalClosure = {
-            // Resume the video feed by enabling the camera when the summary
-            // view goes away.
-            self.videoCapture.isEnabled = true
-        }
-
-        // Present the summary view to the user.
-        present(summaryVC, animated: true)
-
-        // Stop the video feed by disabling the camera while showing the summary
-        // view.
-        videoCapture.isEnabled = false
-    }
-}
 
 // MARK: - Video Capture Delegate
 extension VideoViewController: VideoCaptureDelegate {
